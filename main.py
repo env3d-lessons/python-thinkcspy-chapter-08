@@ -12,7 +12,7 @@ as outline in chatper 8.11
 
 """
 def createRedImage(width, height):
-    
+
     im = image.EmptyImage(width, height)
     
     for x in range(width):
@@ -31,13 +31,12 @@ is black with a single white line across the middle of the image
 """
 def createWhiteLine(width, height):
     im = image.EmptyImage(width, height)
-    mid_y = height // 2
+    
     for x in range(width):
         for y in range(height):
-            if y == mid_y:
-                im.setPixel(x, y, image.Pixel(255, 255, 255))  # White line
-            else:
-                im.setPixel(x, y, image.Pixel(0, 0, 0))        # Black background
+            # Replace pass with your logic
+            pass
+
     return im
 
 """
@@ -48,12 +47,12 @@ that alternate between black and white
 """
 def createAlternateLines(width, height):
     im = image.EmptyImage(width, height)
+
     for x in range(width):
         for y in range(height):
-            if y % 2 == 0:
-                im.setPixel(x, y, image.Pixel(255, 255, 255))  # White line
-            else:
-                im.setPixel(x, y, image.Pixel(0, 0, 0))        # Black line
+            # Replace pass with your logic
+            pass
+
     return im
 
 """
@@ -64,12 +63,12 @@ each pixel has a 50% chance of being white or black
 """
 def createRandomNoise(width, height):
     im = image.EmptyImage(width, height)
+
     for x in range(width):
         for y in range(height):
-            if random.random() < 0.5:
-                im.setPixel(x, y, image.Pixel(255, 255, 255))  # White
-            else:
-                im.setPixel(x, y, image.Pixel(0, 0, 0))        # Black
+            # Replace pass with your logic
+            pass
+
     return im
 
 """
@@ -89,13 +88,12 @@ image inside the red channel.  Implement the following algorithm:
 """
 def decodeImage():
     secret = image.Image("encoded.png")
+
     for x in range(secret.width):
         for y in range(secret.height):
-            pix = secret.getPixel(x, y)
-            if pix.getRed() % 2 == 1:
-                secret.setPixel(x, y, image.Pixel(0, 0, 0))         # Black if red is odd
-            else:
-                secret.setPixel(x, y, image.Pixel(255, 0, 0))       # Red if red is even
+            # Replace pass with your logic
+            pass
+
     return secret
 
 
