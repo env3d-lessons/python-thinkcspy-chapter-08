@@ -22,7 +22,7 @@ jobs:
         echo "Virtual display started"      
     # - name: DEBUG
     #   run: |
-    #     pip install pytest cs20-image 
+    #     pip install pytest 
     #     DISPLAY=:0 pytest -v 
     - name: pytest
       id: pytest
@@ -32,7 +32,6 @@ jobs:
       with:
         timeout: 10
         max-score: 4
-        setup-command: pip install cs20-image 
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
