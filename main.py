@@ -1,5 +1,9 @@
 import image
 import random
+import tkinter as tk
+from tkinter import messagebox
+from PIL import ImageTk  # Requires pillow
+
 """
 The following function is simply an example of how to create a new image
 using the image library from the text.  Here we create an image
@@ -96,3 +100,70 @@ def decodeImage():
             
     # don't forget to save the decoded image!
     return secret
+
+
+### GUI Code - DO NOT MODIFY ####
+
+class ImageGUI:
+    def __init__(self, master):
+        self.master = master
+        master.title("Image Generator")
+
+        self.width = 500
+        self.height = 500
+
+        # Use a frame to hold canvas and buttons side by side
+        main_frame = tk.Frame(master)
+        main_frame.pack(pady=10)
+
+        # Canvas on the left
+        self.canvas = tk.Canvas(main_frame, bg="gray", width=self.width, height=self.height)
+        self.canvas.pack(side=tk.LEFT, padx=10)
+
+        # Buttons in a vertical frame on the right
+        btn_frame = tk.Frame(main_frame)
+        btn_frame.pack(side=tk.LEFT, padx=10, fill=tk.Y)
+
+        tk.Button(btn_frame, text="Create Red Image", width=20, command=self.show_red).pack(pady=5)
+        tk.Button(btn_frame, text="Create White Line", width=20, command=self.show_white_line).pack(pady=5)
+        tk.Button(btn_frame, text="Create Alternate Lines", width=20, command=self.show_alternate_lines).pack(pady=5)
+        tk.Button(btn_frame, text="Create Random Noise", width=20, command=self.show_random_noise).pack(pady=5)
+        tk.Button(btn_frame, text="Decode Image", width=20, command=self.show_decoded).pack(pady=5)
+
+        self.tk_img = None  # Keep reference to avoid garbage collection
+
+    def display_image(self, im):
+        from PIL import ImageTk
+        pil_img = im.im  # This should be a PIL Image
+        self.tk_img = ImageTk.PhotoImage(pil_img, master=self.master)  # Explicitly set master
+        self.canvas.delete("all")
+        self.id = self.canvas.create_image(0, 0, image=self.tk_img, anchor=tk.NW)
+
+    def show_red(self):
+        im = createRedImage(self.width, self.height)
+        self.display_image(im)
+
+    def show_white_line(self):
+        im = createWhiteLine(self.width, self.height)
+        self.display_image(im)
+
+    def show_alternate_lines(self):
+        im = createAlternateLines(self.width, self.height)
+        self.display_image(im)
+
+    def show_random_noise(self):
+        im = createRandomNoise(self.width, self.height)
+        self.display_image(im)
+
+    def show_decoded(self):
+        im = decodeImage()
+        self.display_image(im)
+
+def main_gui():
+    root = tk.Tk()
+    app = ImageGUI(root)
+    root.protocol("WM_DELETE_WINDOW", root.quit)  # Ensure exit on close
+    root.mainloop()
+
+if __name__ == "__main__":
+    main_gui()
