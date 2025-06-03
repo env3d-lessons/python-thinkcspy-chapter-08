@@ -19,17 +19,17 @@ jobs:
         sudo apt-get install -y xvfb
         Xvfb :0 -screen 0 1024x768x24 > /dev/null 2>&1 &
         echo "Virtual display started"      
-    - name: DEBUG
-      run: |
-        pip install pytest
-        pytest -v 
+    # - name: DEBUG
+    #   run: |
+    #     pip install pytest
+    #     pytest -v 
     - name: pytest
       id: pytest
       uses: classroom-resources/autograding-python-grader@v1
       with:
         timeout: 10
         max-score: 4
-        setup-command: export DISPLAY=:0
+        setup-command: pip install cs20-image
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
