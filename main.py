@@ -109,9 +109,9 @@ class ImageGUI:
         self.master = master
         master.title("Image Generator")
 
-        self.width = 500
-        self.height = 500
-
+        self.width = 728
+        self.height = 410
+        
         # Use a frame to hold canvas and buttons side by side
         main_frame = tk.Frame(master)
         main_frame.pack(pady=10)
