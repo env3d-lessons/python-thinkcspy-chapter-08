@@ -16,11 +16,10 @@ jobs:
     - name: pytest
       id: pytest
       uses: classroom-resources/autograding-python-grader@v1
-      env:
-        DISPLAY: ":0"   # 👈 This line sets DISPLAY before pytest runs
       with:
         timeout: 10
         max-score: 4
+        setup-command: export DISPLAY=:0
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
