@@ -1,4 +1,5 @@
 import pytest
+import os
 from main import *
 from unittest.mock import MagicMock, patch
 
