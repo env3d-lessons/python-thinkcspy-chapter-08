@@ -27,10 +27,12 @@ jobs:
     - name: pytest
       id: pytest
       uses: classroom-resources/autograding-python-grader@v1
+      env:
+        DISPLAY: ":0"
       with:
         timeout: 10
         max-score: 4
-        setup-command: pip install cs20-image && export DISPLAY=:0 
+        setup-command: sudo pip install cs20-image 
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
