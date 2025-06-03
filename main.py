@@ -1,8 +1,6 @@
 import image
 import random
-import tkinter as tk
-from tkinter import messagebox
-from PIL import ImageTk  # Requires pillow
+
 
 """
 The following function is simply an example of how to create a new image
@@ -155,6 +153,10 @@ class ImageGUI:
         self.display_image(im)
 
 def main_gui():
+    import tkinter as tk
+    from tkinter import messagebox
+    from PIL import ImageTk  # Requires pillow
+    
     root = tk.Tk()
     app = ImageGUI(root)
     root.protocol("WM_DELETE_WINDOW", root.quit)  # Ensure exit on close
