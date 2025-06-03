@@ -1,7 +1,6 @@
 import image
 import random
 
-
 """
 The following function is simply an example of how to create a new image
 using the image library from the text.  Here we create an image
@@ -15,7 +14,7 @@ def createRedImage(width, height):
     
     for x in range(width):
         for y in range(height):
-            im.setPixel(x, y, image.Pixel(255, 128, 128))
+            im.setPixel(x, y, image.Pixel(255, 0, 0))
 
     return im
 
@@ -153,10 +152,11 @@ class ImageGUI:
         self.display_image(im)
 
 def main_gui():
+
     import tkinter as tk
     from tkinter import messagebox
     from PIL import ImageTk  # Requires pillow
-    
+
     root = tk.Tk()
     app = ImageGUI(root)
     root.protocol("WM_DELETE_WINDOW", root.quit)  # Ensure exit on close
