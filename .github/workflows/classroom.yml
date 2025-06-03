@@ -16,12 +16,12 @@ jobs:
     - name: Install and start virtual display
       run: |
         sudo apt-get update
-        sudo apt-get install -y xvfb
+        sudo apt-get install -y xvfb python3-tk
         Xvfb :0 -screen 0 1024x768x24 > /dev/null 2>&1 &
         echo "Virtual display started"      
     - name: DEBUG
       run: |
-        pip install pytest cs20-image tkinter
+        pip install pytest cs20-image 
         pytest -v 
     - name: pytest
       id: pytest
@@ -29,7 +29,7 @@ jobs:
       with:
         timeout: 10
         max-score: 4
-        setup-command: pip install cs20-image tkinter
+        setup-command: pip install cs20-image 
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
