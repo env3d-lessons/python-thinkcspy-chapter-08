@@ -23,7 +23,7 @@ jobs:
 
     - name: Install pytest
       run: |
-        pip install pytest 
+        pip install pytest cs20-image
 
     - name: test 1
       id: a-command-test-1
