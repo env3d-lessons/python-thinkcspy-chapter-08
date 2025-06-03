@@ -23,7 +23,7 @@ jobs:
     - name: DEBUG
       run: |
         pip install pytest cs20-image 
-        pytest -v 
+        DISPLAY=:0 pytest -v 
     - name: pytest
       id: pytest
       uses: classroom-resources/autograding-python-grader@v1
