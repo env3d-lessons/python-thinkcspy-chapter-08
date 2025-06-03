@@ -20,21 +20,53 @@ jobs:
         Xvfb :0 -screen 0 1024x768x24 > /dev/null 2>&1 &
         export DISPLAY=:0
         echo "Virtual display started"      
-    # - name: DEBUG
-    #   run: |
-    #     pip install pytest 
-    #     DISPLAY=:0 pytest -v 
-    - name: pytest
-      id: pytest
-      uses: classroom-resources/autograding-python-grader@v1
-      env:
-        DISPLAY: ":0"
+
+    - name: Install pytest
+      run: |
+        pip install pytest 
+
+    - name: test 1
+      id: a-command-test-1
+      uses: classroom-resources/autograding-command-grader@v1
       with:
+        test-name: Test Random     
+        command: DISPLAY=:0 pytest -k test_random_one_color
         timeout: 10
-        max-score: 4
+        max-score: 1
+
+    - name: test 2
+      id: a-command-test-2
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test Alternate Lines       
+        command: DISPLAY=:0 pytest -k test_alternate_lines
+        timeout: 10
+        max-score: 1
+
+    - name: test 3
+      id: a-command-test-3
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test White Line        
+        command: DISPLAY=:0 pytest -k test_white_line
+        timeout: 10
+        max-score: 1
+
+    - name: test 4
+      id: a-command-test-4
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test Decode Image        
+        command: DISPLAY=:0 pytest -k test_decode_image
+        timeout: 10
+        max-score: 1
+        
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        PYTEST_RESULTS: "${{steps.pytest.outputs.result}}"
+        A-COMMAND-TEST-1_RESULTS: "${{steps.a-command-test-1.outputs.result}}"
+        A-COMMAND-TEST-2_RESULTS: "${{steps.a-command-test-2.outputs.result}}"
+        A-COMMAND-TEST-3_RESULTS: "${{steps.a-command-test-3.outputs.result}}"
+        A-COMMAND-TEST-4_RESULTS: "${{steps.a-command-test-4.outputs.result}}"
       with:
-        runners: pytest
+        runners: a-command-test-1,a-command-test-2,a-command-test-3,a-command-test-4
