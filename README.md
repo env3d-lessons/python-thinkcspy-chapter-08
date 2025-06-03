@@ -25,8 +25,10 @@ The exercises guide you through creating and modifying images using a simple ima
 
 1. In main.py, you will find the code for each exercise.  Your job is to complete each of the functions (`draw_white_line`, `draw_alternate_lines`, `draw_random_noise`, and `decode_steganography`) to generate the desired images.  
    The `draw_red_image` function is already complete. and acts as an example of how to manipulate pixels in an image.
-2. As in previous challenge exercise, each of the function is part of a larger system and is called by the user interface.  Run `python main.py` to launch the GUI, which you can access from the "Ports" tab in your codespaces.
+2. As in the previous challenges, each of the function is part of a larger system and is called by the user interface.  Run `python main.py` to launch the GUI, which you can access from the "Ports" tab in your codespaces.
 3. Use the buttons to generate and view each exercise image.
+
+Here's a short video on how to run the GUI and what the solution should look like (except for the last question).  <a href="https://youtu.be/QGhse5-jE_E" target="_blank">https://youtu.be/QGhse5-jE_E</a>
 
 This challenge is a hands-on way to build your confidence with **loops** and **if statements**—two of the most important tools in any programmer's toolkit!
 

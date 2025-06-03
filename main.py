@@ -10,10 +10,6 @@ using the image library from the text.  Here we create an image
 of width and height and set every pixel to red using a nested loop
 as outline in chatper 8.11
 
-Here's a video of what this lab will look like when completed:
-
-https://youtu.be/0TW4QGbXAjY 
-
 """
 def createRedImage(width, height):
     
@@ -21,7 +17,7 @@ def createRedImage(width, height):
     
     for x in range(width):
         for y in range(height):
-            im.setPixel(x, y, image.Pixel(255, 0, 0))
+            im.setPixel(x, y, image.Pixel(255, 128, 128))
 
     return im
 
